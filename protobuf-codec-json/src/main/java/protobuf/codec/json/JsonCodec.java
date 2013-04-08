@@ -6,13 +6,12 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.Map;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonParser;
-
 import protobuf.codec.AbstractCodec;
 import protobuf.codec.Codec;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonParser;
 import com.google.protobuf.ExtensionRegistry;
 import com.google.protobuf.Message;
 import com.google.protobuf.Message.Builder;
@@ -49,7 +48,7 @@ public class JsonCodec extends AbstractCodec {
     @Override
     protected Message readFromStream(Builder builder, Reader reader, ExtensionRegistry extnRegistry) throws IOException {
         JsonFactory jsonFactory = new JsonFactory();
-        JsonParser parser = jsonFactory.createJsonParser(reader);
+        JsonParser parser = jsonFactory.createParser(reader);
         return JacksonJsonReader.parse(builder, parser, extnRegistry, getAllFeaturesSet());
     }
 
@@ -68,7 +67,7 @@ public class JsonCodec extends AbstractCodec {
     @Override
     protected void writeToStream(Message message, Writer writer) throws IOException {
         JsonFactory jsonFactory = new JsonFactory();
-        JsonGenerator generator = jsonFactory.createJsonGenerator(writer);
+        JsonGenerator generator = jsonFactory.createGenerator(writer);
         JacksonJsonWriter.generateJSONFields(message, generator, getAllFeaturesSet());
         generator.close();
     }

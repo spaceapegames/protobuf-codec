@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.codehaus.jackson.JsonGenerator;
 
 import protobuf.codec.AbstractCodec;
 import protobuf.codec.Codec.Feature;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.EnumValueDescriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -28,13 +28,13 @@ public class JacksonJsonWriter {
 
     public static void generateJSONFields(Message message, JsonGenerator generator, Map<Feature, Object> featureMap) throws IOException {
 
-        generator.configure(org.codehaus.jackson.JsonGenerator.Feature.AUTO_CLOSE_TARGET, (Boolean) featureMap.get(Feature.CLOSE_STREAM));
+        generator.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, (Boolean) featureMap.get(Feature.CLOSE_STREAM));
 
         if (AbstractCodec.prettyPrint(featureMap)) {
             generator.useDefaultPrettyPrinter();
         }
         if (!AbstractCodec.closeStream(featureMap)) {
-            generator.configure(org.codehaus.jackson.JsonGenerator.Feature.AUTO_CLOSE_TARGET, false);
+            generator.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false);
         }
 
         generator.writeStartObject();

@@ -5,13 +5,13 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonToken;
 
 import protobuf.codec.AbstractCodec;
 import protobuf.codec.Codec.Feature;
 import protobuf.codec.ParseException;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -32,7 +32,7 @@ public class JacksonJsonReader {
     public static Message parse(Builder builder, JsonParser parser, ExtensionRegistry extnRegistry, Map<Feature, Object> featureMap)
             throws IOException {
 
-        parser.configure(org.codehaus.jackson.JsonParser.Feature.AUTO_CLOSE_SOURCE, (Boolean) featureMap.get(Feature.CLOSE_STREAM));
+        parser.configure(JsonParser.Feature.AUTO_CLOSE_SOURCE, (Boolean) featureMap.get(Feature.CLOSE_STREAM));
         parser.nextToken();
         parseObject(builder, parser, extnRegistry, featureMap);
         return builder.build();

@@ -12,6 +12,11 @@ http://maven.apache.org/maven-v4_0_0.xsd">
     <packaging>jar</packaging>
     <name>json codec</name>
     <url>https://github.com/sijuv/protobuf-codec</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jackson.version>2.2.0-spaceape</jackson.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>protobuf</groupId>
@@ -19,9 +24,9 @@ http://maven.apache.org/maven-v4_0_0.xsd">
             <version>1.2</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-            <version>1.6.2</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
     <build>

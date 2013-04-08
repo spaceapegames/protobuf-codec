@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,6 +24,8 @@ import protobuf.codec.json.TypesProtoBuf.RepeatedFields;
 import protobuf.codec.json.TypesProtoBuf.Types;
 import protobuf.codec.json.TypesProtoBuf.Version;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ExtensionRegistry;
 
@@ -80,7 +80,7 @@ public class JsonCodecTest {
 		JsonFactory factory=new JsonFactory();
 		
 		StringWriter writer=new StringWriter();
-		JsonGenerator generator=factory.createJsonGenerator(writer);
+		JsonGenerator generator=factory.createGenerator(writer);
 		generator.writeStartObject();
 
 		generator.writeStringField("idstring", types.getIdstring());
