@@ -6,11 +6,10 @@
     <parent>
         <artifactId>protobuf-codec</artifactId>
         <groupId>protobuf</groupId>
-        <version>1.2</version>
+        <version>1.2-spaceape-SNAPSHOT</version>
     </parent>
-    <groupId>protobuf</groupId>
     <artifactId>protobuf-codec-xml</artifactId>
-    <version>1.2</version>
+    
     <name>protobuf-codec-xml</name>
     <url>https://github.com/sijuv/protobuf-codec</url>
     <properties>
@@ -20,7 +19,7 @@
         <dependency>
             <groupId>protobuf</groupId>
             <artifactId>protobuf-codec-core</artifactId>
-            <version>1.2</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.woodstox</groupId>

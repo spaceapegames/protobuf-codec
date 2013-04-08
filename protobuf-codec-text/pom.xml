@@ -6,7 +6,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>protobuf</groupId>
         <artifactId>protobuf-codec</artifactId>
-        <version>1.2</version>
+        <version>1.2-spaceape-SNAPSHOT</version>
     </parent>
     <artifactId>protobuf-codec-text</artifactId>
     <packaging>jar</packaging>
@@ -16,7 +16,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
         <dependency>
             <groupId>protobuf</groupId>
             <artifactId>protobuf-codec-core</artifactId>
-            <version>1.2</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
     <build>
