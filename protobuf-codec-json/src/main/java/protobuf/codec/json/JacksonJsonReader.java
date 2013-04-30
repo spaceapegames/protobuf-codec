@@ -33,7 +33,10 @@ public class JacksonJsonReader {
             throws IOException {
 
         parser.configure(JsonParser.Feature.AUTO_CLOSE_SOURCE, (Boolean) featureMap.get(Feature.CLOSE_STREAM));
-        parser.nextToken();
+
+        if (!JsonToken.START_OBJECT.equals(parser.getCurrentToken()))
+            parser.nextToken();
+
         parseObject(builder, parser, extnRegistry, featureMap);
         return builder.build();
     }
