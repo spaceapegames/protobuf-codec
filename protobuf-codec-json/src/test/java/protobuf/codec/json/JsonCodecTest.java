@@ -342,4 +342,20 @@ public class JsonCodecTest {
         assertEquals(obj, msg);
     }
 
+    @Test
+    public void testIgnoreMissingFields () throws Exception{
+        Types type1 = Types.newBuilder().setIddouble(1.2).setIdint64(10000000l).build();
+        TypesProtoBuf.Unknown unknown = TypesProtoBuf.Unknown.newBuilder().setId(111).setLiveversion(Version.newBuilder().setName("version")).build();
+        TypesProtoBuf.TestProfile profile = TypesProtoBuf.TestProfile.newBuilder().setType1(type1).setTypeUnknown(unknown).build();
+
+        Codec codec = new JsonCodec();
+        StringWriter out = new StringWriter();
+        codec.fromMessage(profile, out);
+
+        System.out.println(out.toString());
+
+        TypesProtoBuf.TestProfileClone cloned = codec.toMessage(TypesProtoBuf.TestProfileClone.class, new StringReader(out.toString()));
+        assertEquals(cloned.getTypeUnknown().getId(), 111);
+        assertEquals(cloned.getTypeUnknown().getLiveversion().getName(), "version");
+    }
 }

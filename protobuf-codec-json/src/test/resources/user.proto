@@ -68,5 +68,12 @@ extend Unknown{
 	repeated Version extversions=104;
 }
 
+message TestProfile {
+    optional Types type1 = 1;
+    optional Unknown typeUnknown = 2;
+}
 
+message TestProfileClone {
+    optional Unknown typeUnknown = 2;
+}
 
