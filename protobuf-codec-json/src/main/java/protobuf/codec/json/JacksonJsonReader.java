@@ -79,9 +79,7 @@ public class JacksonJsonReader {
             } else {
                 field = descriptor.findFieldByName(fieldName);
             }
-            if (field == null) {
-                throw new ParseException("Field cannot be null, processing fieldName " + fieldName);
-            }
+
             parser.nextToken();
             setFields(builder, field, parser, extnRegistry, featureMap);
         }
@@ -92,7 +90,11 @@ public class JacksonJsonReader {
         Object value = getValue(builder, field, parser, extnRegistry, featureMap);
         if (value == null) {
             // What to do in case of null values ? protobuf does not allow null.
-        } else {
+        }
+        else if (field == null){
+            //ignore values to provide back compatibility when field is missing
+        }
+        else {
             builder.setField(field, value);
         }
         return builder;
