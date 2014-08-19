@@ -4,7 +4,7 @@
     <groupId>protobuf</groupId>
     <artifactId>protobuf-codec</artifactId>
     <packaging>pom</packaging>
-    <version>1.7-spaceape-SNAPSHOT</version>
+    <version>1.8-spaceape-SNAPSHOT</version>
     <name>Protobuf codec parent pom</name>
     <modules>
         <module>protobuf-codec-core</module>

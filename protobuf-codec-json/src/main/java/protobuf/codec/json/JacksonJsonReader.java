@@ -146,6 +146,10 @@ public class JacksonJsonReader {
                     value = parser.getIntValue();
                 } else if (JavaType.LONG.equals(field.getJavaType())) {
                     value = parser.getLongValue();
+                } else if (JavaType.DOUBLE.equals(field.getJavaType())) {
+                    value = parser.getDoubleValue();
+                } else if (JavaType.FLOAT.equals(field.getJavaType())) {
+                    value = parser.getFloatValue();
                 } else {
                     throw new UnsupportedEncodingException(
                             String.format(
