@@ -4,7 +4,7 @@
     <parent>
         <groupId>protobuf</groupId>
         <artifactId>protobuf-codec</artifactId>
-        <version>1.9-spaceape</version>
+        <version>1.10-spaceape-SNAPSHOT</version>
     </parent>
     <artifactId>protobuf-codec-text</artifactId>
     <packaging>jar</packaging>

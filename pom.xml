@@ -4,7 +4,7 @@
     <groupId>protobuf</groupId>
     <artifactId>protobuf-codec</artifactId>
     <packaging>pom</packaging>
-    <version>1.9-spaceape</version>
+    <version>1.10-spaceape-SNAPSHOT</version>
     <name>Protobuf codec parent pom</name>
     <modules>
         <module>protobuf-codec-core</module>
@@ -66,7 +66,7 @@
     </distributionManagement>
     <scm>
         <connection>scm:git:git@github.com:spaceapegames/protobuf-codec.git</connection>
-        <tag>protobuf-codec-1.9-spaceape</tag>
+        <tag>scm:git:git@github.com:spaceapegames/protobuf-codec.git</tag>
         <url>scm:git:git@github.com:spaceapegames/protobuf-codec.git</url>
         <developerConnection>scm:git:git@github.com:spaceapegames/protobuf-codec.git</developerConnection>
     </scm>
